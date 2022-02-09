@@ -36,7 +36,7 @@ planets.shift("The Sun");
 
     var index= planets.indexOf("Earth");
     console.log('Finding and logging the index of "Earth" in the planets array.');
-console.log(index);
+console.log(index); // or console.log(planets.indexOf('Earth'));
 
 planets.reverse();
     console.log("Reversing the order of the planets array.");
