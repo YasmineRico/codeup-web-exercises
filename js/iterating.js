@@ -35,7 +35,7 @@
      * array.
      */
 for (var x = 0; x< names.length; x++){
-    console.log("First name is " + names[x] + "!");
+    console.log("My name is " + names[x] + "!");
 }
 
     /**
