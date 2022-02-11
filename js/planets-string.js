@@ -30,11 +30,6 @@ var breakThePlanets = planetsString.replaceAll("|","<br>");
 var breakPlanetArray = breakThePlanets.split(' ');
 console.log(breakPlanetArray);
 
-//Walkthrough this answer is to get the planets back into a string and use <br> tags in between the planets.
-console.log(planetsArray.join('<br>'))
 
-//bonus
-    var output = '<ul><li>'+ planetsArray.join('</li><li>')+ </li></ul>';
-        document.write(output);
 
 })();
