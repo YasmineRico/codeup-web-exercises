@@ -11,9 +11,10 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
-var person = {}
-    person.firstName = "Yasmine"
-    person.lastName = "Rico"
+    var person = {
+        firstName: 'Yasmine',
+        lastName: 'Rico',
+    }
 
     console.log(person.firstName)
     console.log(person.lastName)
@@ -27,16 +28,20 @@ var person = {}
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
-    person.sayHello = function(){
-        console.log("Hello from " + this.firstName +" "+ this.lastName + "!");
+    person.sayHello = function () {
+        console.log("Hello from " + this.firstName + " " + this.lastName + "!");
     }
     person.sayHello()
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
      * more than $200. If a shopper spends more than $200, they get a 12%
-     * discount. Write a JS program, using conditionals, that logs to the
+     * discount.
+     *
+     * Write a JS program, using conditionals, that logs to the
      * browser, how much Ryan, Cameron and George need to pay. We know that
-     * Cameron bought $180, Ryan $250 and George $320. Your program will have to
+     * Cameron bought $180, Ryan $250 and George $320.
+     *
+     * Your program will have to
      * display a line with the name of the person, the amount before the
      * discount, the discount, if any, and the amount after the discount.
      *
@@ -45,11 +50,18 @@ var person = {}
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320},
+    ];
+
+    shoppers.forEach(function(shopper){
+        console.log("Hey " + shopper.name +" "+"your total amount is $" + shopper.amount + " your new amount is $"+ shopper.amount *.88)
+    })
+
+
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -63,6 +75,18 @@ var person = {}
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+
+
+var books = [
+    {title:"The Salmon of Doubt", author:{firstName:" Douglas", lastName:"Adams"}},
+        {title:"The Loneliest Girl In the Universe", author:{firstName:"Lauren" , lastName:"James"}},
+        {title:"All The Ugly And Wonderful Things", author:{firstName:"Bryn" , lastName:"Greenwood"}},
+        {title:"The Midnight Library", author:{firstName:"Matt" , lastName:"Haig"}},
+        {title:"Signs", author:{firstName:"Laura" , lastName:"Jackson"}}
+]
+console.log(books[0].title);
+console.log(books[1].title);
+console.log(books[2].author.firstName);
 
     /**
      * TODO:
@@ -99,5 +123,8 @@ var person = {}
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+
+
 
 })();
