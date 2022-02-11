@@ -113,6 +113,10 @@ console.log(books[2].author.firstName);
      *      ...
      */
 
+    //Mr. Reich helped me to get to the (index + 1) solution by putting in a second parameter and then adding parenthesis around the index + 1)
+books.forEach(function(book, index){
+    console.log("Book # "  + (index +1) + " "+ "Title:" + " "+ book.title + " "+ book.author.firstName + " "+ book.author.lastName)
+})
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
