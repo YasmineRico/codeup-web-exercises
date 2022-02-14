@@ -59,7 +59,10 @@
     ];
 
     shoppers.forEach(function(shopper){
-        console.log("Hey " + shopper.name +" your total amount is $" + shopper.amount +" and your discount is $"+ ((shopper.amount > 200) ? shopper.amount * .12 :0 ) + " your new total is $"+ ((shopper.amount> 200) ? shopper.amount *.88 : shopper.amount))
+        console.log("Hey " + shopper.name
+            + " your total amount is $" + shopper.amount
+            + " and your discount is $"+ ((shopper.amount > 200) ? shopper.amount * .12 :0 )
+            + " your new total is $"+ ((shopper.amount> 200) ? shopper.amount *.88 : shopper.amount))
     })
 
 
