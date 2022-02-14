@@ -16,7 +16,7 @@ var createUserMsg= [
 ]
 
 createUserMsg.forEach(function(users){
-	console.log("User " + users.username + " is " + ((users.isAdmin == true) ? true : false ) + " and can be reached at " +users.email)
+	console.log("User " + users.username  + ((users.isAdmin == true) ? " is an Admin" : "is not an admin" ) + " and can be reached at " +users.email)
 })
 
 
