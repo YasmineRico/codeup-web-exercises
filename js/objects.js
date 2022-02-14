@@ -50,6 +50,7 @@
      * and console.log the relevant messages for each person
      */
 
+//Note: if we wanted to access a specific point in this array we would need to do something like shoppers[0].name this will give us "cameron".
 
     var shoppers = [
         {name: 'Cameron', amount: 180},
@@ -58,7 +59,7 @@
     ];
 
     shoppers.forEach(function(shopper){
-        console.log("Hey " + shopper.name +" "+"your total amount is $" + shopper.amount + " your new amount is $"+ shopper.amount *.88)
+        console.log("Hey " + shopper.name +" your total amount is $" + shopper.amount +" and your discount is $"+ ((shopper.amount > 200) ? shopper.amount * .12 :0 ) + " your new total is $"+ ((shopper.amount> 200) ? shopper.amount *.88 : shopper.amount))
     })
 
 
