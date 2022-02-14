@@ -10,13 +10,13 @@
 // ‘User jbomb is not an admin and can be reached at john@email.com’
 
 var createUserMsg= [
-	{username: 'Yasmine'},
-	{email: 'ricolyasmine@gmail.com'},
-	{isAdmin: true}
+	{username: 'Yasmine', email: "ricolyasmine@gmail.com", isAdmin: false},
+	{username: 'jbomb', email: 'john@email', isAdmin: true}
+
 ]
 
 createUserMsg.forEach(function(users){
-	console.log("User " + users.username + " is " + users.admin + " and can be reached at " +users.email)
+	console.log("User " + users.username + " is " + ((users.isAdmin == true) ? true : false ) + " and can be reached at " +users.email)
 })
 
 
