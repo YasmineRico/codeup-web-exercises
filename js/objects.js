@@ -119,7 +119,7 @@ console.log(books[2].author.firstName);
 
     //Mr. Reich helped me to get to the (index + 1) solution by putting in a second parameter and then adding parenthesis around the index + 1)
 books.forEach(function(book, index){
-    console.log("Book # "  + (index +1) + " "+ "Title:" + " "+ book.title + " "+ book.author.firstName + " "+ book.author.lastName)
+    console.log("Book # "  + (index +1) +'\n' + " Title: " + book.title +'\n' + " Author: "+ book.author.firstName + " "+ book.author.lastName + '\n' +'---')
 })
     /**
      * Bonus:
