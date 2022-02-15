@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Register With Us</title>
+	</head>
+	<body>
+		<form method="POST" action="https://request-inspector.glitch.me/"> <fieldset>
+			<h3>User Information</h3>
+			<label>
+				<input type ="text" name="email" placeholder="Enter your e-mail address">
+			</label>
+			<br>
+			<br>
+			<label>
+				<input type="password" name="password" placeholder="Enter your password">
+			</label>
+			<br>
+			<br>
+		</fieldset>
+			<br>
+			<br>
+			<h3>Bio:</h3>
+			<label>
+				<textarea name="bio" rows="10" cols="48" placeholder="Write a short bio here"></textarea>
+			</label>
+			<h3>How did you hear about us?</h3>
+			<label for="billboard">
+				Billboard <input id="billboard" type="radio" name="billboard" value="billboard">
+			</label>
+			<br>
+			<br>
+			<label for="radio advertisement">
+				Radio Advertisement <input id="radio advertisement" type="radio" name="radio" value="radio advertisement">
+			</label>
+			<br>
+			<br>
+			<label for="internet advertisement">
+				Internet Advertisement <input id="internet advertisement" type="radio" name="internet" value="internet advertisement">
+			</label>
+			<br>
+			<br>
+			<label for="other">
+				Other <input id="other" type="radio" name="other" value="other">
+			</label>
+			<br>
+			<br>
+			<label>
+				<h3>What browser do you use?</h3>
+				<select name="web browser">
+					<option value="chrome">Google Chrome</option>
+					<option value="edge">Microsoft Edge</option>
+					<option value="firefox">Mozilla Firefox</option>
+					<option value="explorer">Internet Explorer</option>
+				</select>
+			</label>
+			<br>
+			<br>
+			<input type="submit" value="Submit">
+			<input type="reset">
+			</form>
+	</body>
+</html>
