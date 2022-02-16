@@ -24,7 +24,7 @@
 function areaOrPerimeter(l, w) {
 	var areaSquare = l ** 2
 	var perimeterRectangle = (l + w) * 2
-	if (typeof l === "string" || typeof w === "string") {
+	if (isNaN(parseFloat(l)) || isNaN(parseFloat(w))) {
 		return false;
 	}
 	if (l == w) {
@@ -36,6 +36,7 @@ function areaOrPerimeter(l, w) {
 }
 
 console.log(areaOrPerimeter(6, 10))
-console.log(areaOrPerimeter("my", "hello"))
+console.log(areaOrPerimeter("my", "2"))
+console.log(areaOrPerimeter("2", 3))
 
 //return false if input is not a number or numeric string
