@@ -40,3 +40,30 @@ console.log(areaOrPerimeter("my", "2"))
 console.log(areaOrPerimeter("2", 3))
 
 //return false if input is not a number or numeric string
+
+//on the right path here just needed more time. Working on the bonus question
+
+// function sumTheStrings(num1, num2){
+// 	num1 = parseInt(num1)
+// 	num2 = parseInt(num2)
+// 	var result = num1 + num2
+// 	if(num1 !== "string"|| num1 == !isNaN && num2 !== "string" || num2 == !isNaN){
+// 		return false
+// 	}
+// 	 if(num1 === "string" && num2 === "string") {
+// 		 return String(result)
+// 	 }
+//
+// }
+
+
+//this solution returns the output as a string and accepts numeric strings.
+function sumTheStrings(num1, num2) {
+	num1 = parseInt(num1)
+	num2 = parseInt(num2)
+	var result = num1 + num2
+	if(Number(num1) && Number(num2)){
+		return String(result)
+	}
+}
+
