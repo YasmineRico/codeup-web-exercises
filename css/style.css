@@ -1,18 +1,32 @@
 .fancy-header {
-    color: saddlebrown; /* single line comment */
+    color: white; /* single line comment */
     text-decoration: underline ;
-    text-decoration-style: double;
+    text-decoration-style: wavy;
     text-decoration-color: rosybrown;
 }
 /*Center the main heading
  */
 h1.fancy-header{
     text-align: center;
+    animation: animate 2.5s linear infinite;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+@keyframes animate {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .7;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
+header, p{
+    color:white;
 }
-ul{
-    list-style: none;
-}
+
 
 /*Add a style to change the color of the headers on your page and make them underlined.
  */
@@ -33,14 +47,22 @@ body{
 /*Add a style to add a background image to your background. Search how to manipulate the position, sizing of this background image
  */
 
+body{
+    background-image: url(../images/clouds-background.jpg);
+
+}
+
 
 
 /*Add a style to change the list-style to something other than the default bullet.
  */
 
+ul{
+    list-style: none;
+}
 ul li:before {
    content: "\2665";
-    color: black;
+    color: pink;
 }
 
 /*Add a style to change the font for the entire page. Use google fonts if you would like.
@@ -74,3 +96,7 @@ a:active{
     color: darkolivegreen;
 }
 
+
+image{
+    width: 50px
+}
