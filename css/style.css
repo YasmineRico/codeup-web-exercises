@@ -1,5 +1,5 @@
 .fancy-header {
-    color: white; /* single line comment */
+    color: black; /* single line comment */
     text-decoration: underline ;
     text-decoration-style: wavy;
     text-decoration-color: rosybrown;
@@ -8,7 +8,7 @@
  */
 h1.fancy-header{
     text-align: center;
-    animation: animate 2.5s linear infinite;
+    animation: animate 5s linear infinite;
     text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
 }
 @keyframes animate {
@@ -24,7 +24,7 @@ h1.fancy-header{
 }
 
 header, p{
-    color:white;
+    color:black;
 }
 
 
@@ -33,70 +33,76 @@ header, p{
 
 h2, h3{
     text-decoration: underline;
-    text-decoration-color: saddlebrown;
+    text-decoration-color: purple;
 }
 
 
-/*Add a style to change the background color of the page.
+/*Add a style to change the background color of the page. /*Add a style to add a background image to your background. Search how to manipulate the position, sizing of this background image
  */
+
 
 body{
     background-color:floralwhite;
-}
-
-/*Add a style to add a background image to your background. Search how to manipulate the position, sizing of this background image
- */
-
-body{
+    background-position: top right;
+    background-attachment: fixed;
+    background-size: cover;
+    text-align:center;
     background-image: url(../images/clouds-background.jpg);
-
+    font-family: 'Press Start 2P', cursive;
 }
+
 
 
 
 /*Add a style to change the list-style to something other than the default bullet.
  */
 
-ul{
+
+ol{
     list-style: none;
 }
-ul li:before {
-   content: "\2665";
-    color: pink;
+li{
+    list-style: none;
+}
+
+li:before{
+    content: "\2665";
+    color: black;
 }
 
 /*Add a style to change the font for the entire page. Use google fonts if you would like.
  */
-body{
-    font-family:"Abril Fatface", cursive;
-}
+
 
 /*Add a style to change the table, table cells td and rows tr padding and font sizes.
  */
-table{
-    padding-top: -10px;
-    padding-left: 1px;
-    font-size: large;
+
+
+table, th, td{
+    margin: auto;
+    border-collapse: collapse;
+    text-align: center;
+    vertical-align: middle;
+    table-layout: auto;
+    border: 1px solid black;
+    width: 40%;
 }
+
 
 /*Add a style to alter the anchor tags and its different states. (e.g. link, visited, hover and active).
  */
 a:link{
-    color: saddlebrown;
+    color: pink;
 }
 a:visited{
-    color:dimgrey;
+    color:rosybrown;
 }
 
 a:hover{
-    color: rosybrown;
+    color: hotpink;
 }
 
 a:active{
-    color: darkolivegreen;
+    color: hotpink;
 }
 
-
-image{
-    width: 50px
-}
