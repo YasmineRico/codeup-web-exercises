@@ -1,0 +1,35 @@
+body{
+    background-color: lightgoldenrodyellow;
+    margin: auto;
+    font-size: 1.2em;
+}
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    display: flex;
+}
+
+div{
+    flex-basis: 100%;
+}
+
+@media screen and (min-width:768px){
+    body {
+        background-color: pink;
+    }
+}
+
+@media screen and (min-width: 992px){
+    body {
+        background-color: cornflowerblue;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    body {
+        background-color: slateblue;
+    }
+}
