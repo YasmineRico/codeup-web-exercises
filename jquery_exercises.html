@@ -6,34 +6,36 @@
 	</head>
 	<body>
 		<header>
-		<h1>JQuery Exercises</h1>
+		<h1 id="title">JQuery Exercises</h1>
 		</header>
 		<hr>
-		<div>
+		<div class="info">
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl vel tortor cursus tincidunt. Praesent ut eros dignissim, auctor mi quis, iaculis lacus. Vestibulum dictum ultricies sagittis. In a lectus eget felis blandit hendrerit. Suspendisse sodales ultricies condimentum.</p>
 		<ul>
 			<li>item1</li>
-			<li>item2</li>
+			<li class="important">item2</li>
 			<li>item3</li>
 		</ul>
 		</div>
-		<div>
+		<div class="another paragraph">
+			<h2 id="about">About Us</h2>
 			<p>Nulla non justo vel urna varius gravida. Nulla eros ligula, faucibus nec mauris nec, facilisis placerat sapien. In scelerisque eros dictum bibendum volutpat. Sed blandit, libero nec faucibus viverra, mi libero fermentum mauris, eget consectetur felis diam quis arcu. </p>
 		</div>
 
-	<script src="https://code.jquery.com/jquery-2.2.4.min.js"
-	        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
-	</script>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
 		<script>
 	'use strict';
 
-	$(document).ready(function(){
-		alert('The DOM has finished loading')
+	$(document).ready(function() {
+
+		var contents = $('title').html();
+		alert(contents);
+
+
 		});
 
-
-
-
 		</script>
+
 	</body>
 </html>
