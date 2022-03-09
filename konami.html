@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+	"use strict";
+
+	//Source https://www.haykranen.nl/2010/05/07/konami/
+	function konami(fn) {
+		var input = "";
+		var pattern = "38384040373937396665";
+		$(document).keydown(function(e) {
+			input += e.keyCode;
+			if (input.indexOf(pattern) !== -1) {
+				fn();
+				input = "";
+			}
+		});
+	}
+
+	//specifies what happens when a ready event occurs(occurs after the DOM has been loaded)
+	$(document).ready(function() {
+		konami(function() {
+			alert("You have added 30 lives!");
+		});
+	});
+
+
+</script>
+</body>
+</html>
