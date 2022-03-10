@@ -13,7 +13,7 @@
     #hacked{
 	    display:none;
     }
-    #warning{
+    #konamiPic{
 	    display:flex;
 	    flex-direction: column;
 	    justify-content: center;
@@ -31,7 +31,7 @@
 	<h1 class="warn">Warning!</h1>
 	<p class="warn">We have officially hacked your computer.
 		<p class="warn">In order to regain access to your files please input the following keys:</p>
-	<div id="warning">
+	<div id="konamiPic">
 	<img src="images/konami-code.png">
 </div>
 
@@ -63,7 +63,7 @@
 			$('body').css('background-color', 'black');
 			$('h1').css('color', 'white')
 			$('.warn').hide()
-			$('#warning').hide()
+			$('#konamiPic').hide()
 			$('#hacked').show()
 
 		});
