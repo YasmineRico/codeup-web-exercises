@@ -66,6 +66,24 @@
 
 	<button id="answers">Toggle Answers</button>
 
+	<h3 id="national-parks-heading">National Parks</h3>
+	<ul id="national-parks">
+		<li>Arches</li>
+		<li>Badlands</li>
+		<li>Carlsbad Caverns</li>
+		<li>Denali</li>
+		<li>Everglades</li>
+	</ul>
+	<h3>State Parks of Texas</h3>
+	<ul id="state-parks-texas">
+		<li>Abilene</li>
+		<li>Big Bend</li>
+		<li>Choke Canyon</li>
+		<li>Davis Mountains</li>
+		<li>Enchanted Rock</li>
+	</ul>
+	<button id="yellow">Yellow Background</button>
+
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js"
 	        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 	<script>
@@ -74,9 +92,26 @@
 		$('#answers').click(function(){
 			$('dd').toggleClass('invisible')
 		});
+		//Create a button that, when clicked, makes the last li in each ul have a yellow background.
 
+		// $('#yellow').click(function() {
+		// 	children('ul')
+		// 		.each(function () {
+		// 			$(this)
+		// 				.children()
+		// 				.last()
+		// 				.addClass('highlight');
+		// 		});
+		// });
 
-
+	//	When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this.
+		$('h3').click(function(){
+			$(this).next().css('font-weight', 'bold')
+		})
+	//	When any list item is clicked, first li of the parent ul should have a font color of blue.
+		$('li').click(function(){
+			$(this).parent().children().first().css('color', 'blue')
+		})
 
 
 
