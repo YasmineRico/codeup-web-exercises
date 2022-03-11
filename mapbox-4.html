@@ -37,12 +37,20 @@ const map = new mapboxgl.Map({
 // 	console.log(data);
 // })
 
-var long=-112.9884495;
-var lat=37.200947
-reverseGeocode({lng: long, lat:lat}, MAPBOX_API_TOKEN).then(function(data){
-	console.log(data)
-})
+// var long=-112.9884495;
+// var lat=37.200947
+// reverseGeocode({lng: long, lat:lat}, MAPBOX_API_TOKEN).then(function(data){
+// 	console.log(data)
+// })
 
+	geocode('Honolulu, Hawaii', MAPBOX_API_TOKEN).then(function(data){
+		console.log(data)
+	})
+	var long=-157.8557;
+	var lat = 21.3045
+	reverseGeocode({lng: long, lat:lat}, MAPBOX_API_TOKEN).then(function(data){
+		console.log(data)
+	})
 </script>
 </body>
 </html>
