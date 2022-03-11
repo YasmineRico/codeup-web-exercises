@@ -34,7 +34,7 @@
     {
         "title": "Ladder",
         "quantity": 2,
-        "Categories": [
+        "categories": [
             "tool"
         ],
         "price": 20
