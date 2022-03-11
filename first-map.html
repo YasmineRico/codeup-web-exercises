@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>First Map</title>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+	<style>
+		#map{
+			width: 100%;
+		}
+
+	</style>
+
+</head>
+<body>
+<div id='map' style='height: 500px;'></div>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script>
+	'use strict';
+	mapboxgl.accessToken = MAPBOX_API_TOKEN
+
+	const map = new mapboxgl.Map({
+		container: 'map', // container ID
+		style: 'mapbox://styles/mapbox/streets-v11', // style URL
+		center: [-98.4915, 29.4252], // starting position [lng, lat]
+		zoom: 12// starting zoom
+	});
+
+	// ================================= Mapbox Mini Exercises
+	//
+	// Mini - Exercise 1 (before markers)
+	//
+	// In this file, create a Mapbox map that shows your home town. After 5 seconds, have the map automatically change to a map of the entire United States using a satellite style.
+// SetTimeOut (function (){
+// 	map.setCenter([-98.4915, 29.4252]);
+// 	map.setZoom(3);
+//
+// })
+	const marker = new mapboxgl.Marker()
+		.setLngLat([-98.4941, 29.4271])
+		.setPopup(new mapboxgl.Popup().setHTML("<h1 style='color: saddlebrown'>Pinkertons BBQ!</h1>"))
+		.addTo(map);
+
+	marker.togglePopup(); // toggle popup open or closed
+
+
+
+
+</script>
+
+</body>
+</html>
