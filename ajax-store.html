@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<h1>My Tool Store</h1>
+<h1>Rico's Tool Casita</h1>
 
 <table id="products">
     <thead>
@@ -32,6 +32,8 @@
         //TODO: Take the data from inventory.json and append it to the products table
             //HINT: Your data should comeback as a JSON object; use console.log() to inspect.
             //HINT: You will want to target #insertProducts for your new HTML elements
+// SOURCE: https://www.geeksforgeeks.org/how-to-fetch-data-from-json-file-and-display-in-html-table-using-jquery/
+
 
     $.getJSON('data/inventory.json',
             function (data){
@@ -41,7 +43,7 @@
             products+= '<td>' + value.title + '</td>';
             products += '<td>' + value.quantity + '</td>'
             products += '<td>' + value.price + '</td>'
-            products += '<td>' + value.categories + '</td>'
+            products += '<td>' + value.categories.join(', ') + '</td>'
             products += '</tr>'
         });
         $('#insertProducts').append(products)
