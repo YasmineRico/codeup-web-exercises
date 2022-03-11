@@ -47,11 +47,14 @@
 	//GEOCODING and REVERSE GEOCODING
 
 
-geocode('Rivercenter Mall, San Antonio, Texas', MAPBOX_API_TOKEN).then(function(data){
-	console.log(data);
+// geocode('Rivercenter Mall, San Antonio, Texas', MAPBOX_API_TOKEN).then(function(data){
+// 	console.log(data);
+// })
+var long=-98.48504175;
+var lat=29.42387825
+reverseGeocode({lng: long, lat:lat}, MAPBOX_API_TOKEN).then(function(data){
+	console.log(data)
 })
-
-
 </script>
 
 </body>
