@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Fourth Map</title>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+	<style>
+		body{
+			background-color: black;
+		}
+        #map{
+            width: 100%;
+        }
+		h1{
+			display: flex;
+			justify-content: center;
+			font-family: Baskerville;
+			color:whitesmoke;
+		}
+		p{
+			display: flex;
+			justify-content: right;
+			font-family: Baskerville;
+			color:whitesmoke;
+		}
+	</style>
+
+</head>
+<body>
+<header>
+	<h1>Rico's Traveling Eatery</h1>
+	<hr>
+</header>
+
+<div id='map' style='height: 500px;'></div>
+
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src="js/keys.js"></script>
+<script>
+	'use strict';
+	mapboxgl.accessToken = MAPBOX_API_TOKEN
+	// Generate a map that shows the city with your favorite restaurant using geocoding.
+	// 	Redraw the map of the above location at zoom levels 5, 15, and 20. Do this by simply changing the value of zoom level where the map properties are initially set and refresh the page to see the changes. Can the zoom be changed programmatically after the initial map is drawn?
+	// 	Create a marker on your map of the exact location of your favorite restaurant set the zoom to allow for best viewing distance.
+	// 	Create a popup with the name of the restaurant.
+	// 	Make sure the info window does not display until the marker has been clicked on.
+	// 	Refactor your code to display at least three of your favorite restaurants with information about each. Create an array of objects with information about each restaurant to accomplish this. Use a .forEach() loop rather than a for loop.
+	const map = new mapboxgl.Map({
+		container: 'map', // container ID
+		style: 'mapbox://styles/mapbox/streets-v11', // style URL
+		center: [3.952927, 50.453138], //
+		zoom: 20
+	});
+	// Set marker options.
+	const marker = new mapboxgl.Marker({
+		color: "purple",
+		draggable: true
+	}).setLngLat([3.952927, 50.453138])
+		.setPopup(new mapboxgl.Popup().setHTML("<h2>Le Petit Fric</h2>"))
+		.addTo(map);
+
+
+	//Find the Lat/Long of La Petit Fric (delicious Vietnamese Restuarant in Mons, BE)
+	geocode('Le Petit Fric, Mons, Belgium', MAPBOX_API_TOKEN).then(function(data){
+		console.log(data)
+
+	})
+//Extra check to what the console will bring back with the coordinates above.
+	var long = 3.952927;
+	var lat = 50.453138
+	reverseGeocode({lng: long, lat:lat}, MAPBOX_API_TOKEN).then(function(data){
+		console.log(data)
+	})
+</script>
+</body>
+</html>
