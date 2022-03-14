@@ -50,7 +50,10 @@
 			font-family: Baskerville;
 			color: whitesmoke;
 		}
-
+		footer{
+			display: flex;
+			justify-content: center;
+		}
 	</style>
 
 </head>
@@ -83,7 +86,7 @@
 
 <div id='map' style='height: 500px;'></div>
 <footer>
-	<p>Follow Our Journey</p>
+	<a href="https://github.com/YasmineRico">My Github</a>
 </footer>
 
 
@@ -98,7 +101,7 @@
 	// 	Create a marker on your map of the exact location of your favorite restaurant set the zoom to allow for best viewing distance.
 	// 	Create a popup with the name of the restaurant.
 	// 	Make sure the info window does not display until the marker has been clicked on.
-	// 	Refactor your code to display at least three of your favorite restaurants with information about each. Create an array of objects with information about each restaurant to accomplish this. Use a .forEach() loop rather than a for loop.
+	// 	Refactor your code to display at least three of your favorite restaurants with information about each. Create an array of objects with information about each restaurant to accomplish this. Use a .forEach() loop rather than a for loop. --> Missed this step !!-------- need to use JSON Resource: https://docs.mapbox.com/help/tutorials/custom-markers-gl-js/
 	const map = new mapboxgl.Map({
 		container: 'map', // container ID
 		style: 'mapbox://styles/mapbox/streets-v11', // style URL
@@ -123,6 +126,7 @@
 	}).setLngLat([3.952608, 50.453607])
 		.setPopup(new mapboxgl.Popup().setHTML("<h3>Citizen Fox</h3>"))
 		.addTo(map);
+
 	geocode('citizen fox, Mons, Belgium', MAPBOX_API_TOKEN).then(function(data){
 		console.log(data)
 
@@ -151,6 +155,8 @@
 	reverseGeocode({lng: long, lat:lat}, MAPBOX_API_TOKEN).then(function(data){
 		console.log(data)
 	})
+
+
 </script>
 </body>
 </html>
