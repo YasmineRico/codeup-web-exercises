@@ -2,38 +2,91 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Fourth Map</title>
+	<title>Mapbox Maps</title>
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
 	<style>
 		body{
 			background-color: black;
+
 		}
-        #map{
-            width: 100%;
+		#restaurants{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			margin-bottom: 50px;
+		}
+        #fox{
+            display: flex;
+            flex-direction: column;
+            width:33%;
         }
-		h1{
+
+        #viet{
+            display: flex;
+            flex-direction: column;
+            width: 33%;
+        }
+        #italian{
+            display: flex;
+            flex-direction: column;
+            width: 33%
+        }
+        #map{
+            width: 75%;
+	        margin:auto;
+        }
+
+		h1, h4{
 			display: flex;
 			justify-content: center;
-			font-family: Baskerville;
-			color:whitesmoke;
+			font-family:Beirut;
+			color: whitesmoke;
+
+
 		}
-		p{
+
+		h2, p{
 			display: flex;
-			justify-content: right;
 			font-family: Baskerville;
-			color:whitesmoke;
+			color: whitesmoke;
 		}
+
 	</style>
 
 </head>
 <body>
 <header>
-	<h1>Rico's Traveling Eatery</h1>
+
+	<h1>Les Neyman En Belgique</h1>
+	<h4>"Where's The Food?"</h4>
 	<hr>
 </header>
 
-<div id='map' style='height: 500px;'></div>
+<div id="restaurants">
+	<div id="fox">
+		<h2>Citizen Fox</h2>
+<p>Citizen fox serves an american cuisine with choices like Hot Wings, Onion Rings, Burgers, Salads and fried chicken everyone is bound to find something to rave about. Not only is the food selection great but if you take a gander at their drink selection this would be the ultimate pre-game dinner spot.</p>
+<img class="citizen-food" src="images/citizen-hot-wings.jpeg">
+	</div>
 
+
+
+<div id="viet">
+	<h2>Le Petit Fric</h2>
+	<p>Located in the heart of downtown Mons, Le Petit Fric is an authentic Vietnamese restaurant. They have large Pho dishes, amazing spring rolls and so many main dish choices. My personal favorite dish is the Marmite Tofu which is grilled tofu with vegatables and steamed rice topped with a sweet homemade sauce.</p>
+	<img src="images/pho.jpeg">
+</div>
+<div id="italian">
+<h2>La Primavera</h2>
+<p>If you love classic italian foods you La Primavera will not disappoint. Their pizzas are made fresh in a brick oven and there are so many varieties to choose from. They also have classic pastas like spaghetti bolognese, alfredo pasta and even the belgian staple Mussels!</p>
+	<img src="images/primavera-pizza.webp">
+</div>
+</div>
+
+<div id='map' style='height: 500px;'></div>
+<footer>
+	<p>Follow Our Journey</p>
+</footer>
 
 
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
@@ -51,26 +104,52 @@
 	const map = new mapboxgl.Map({
 		container: 'map', // container ID
 		style: 'mapbox://styles/mapbox/streets-v11', // style URL
-		center: [3.952927, 50.453138], //
-		zoom: 20
+		center: [3.952618, 50.453888], //
+		zoom: 17
 	});
 	// Set marker options.
-	const marker = new mapboxgl.Marker({
-		color: "purple",
+	const mark1 = new mapboxgl.Marker({
+		color: "red",
 		draggable: true
 	}).setLngLat([3.952927, 50.453138])
-		.setPopup(new mapboxgl.Popup().setHTML("<h2>Le Petit Fric</h2>"))
+		.setPopup(new mapboxgl.Popup().setHTML("<h3>Le Petit Fric</h3>"))
 		.addTo(map);
-
-
-	//Find the Lat/Long of La Petit Fric (delicious Vietnamese Restuarant in Mons, BE)
-	geocode('Le Petit Fric, Mons, Belgium', MAPBOX_API_TOKEN).then(function(data){
+//
+// 	//Find the Lat/Long of La Petit Fric (delicious Vietnamese Restuarant in Mons, BE)
+//
+//
+// 	//Marker for Citizen Fox -------
+	const mark2 = new mapboxgl.Marker({
+		color: "yellow",
+		draggable: true
+	}).setLngLat([3.952608, 50.453607])
+		.setPopup(new mapboxgl.Popup().setHTML("<h3>Citizen Fox</h3>"))
+		.addTo(map);
+	geocode('citizen fox, Mons, Belgium', MAPBOX_API_TOKEN).then(function(data){
 		console.log(data)
 
 	})
-//Extra check to what the console will bring back with the coordinates above.
-	var long = 3.952927;
-	var lat = 50.453138
+// //Extra check to what the console will bring back with the coordinates above.
+	var long =  3.952608;
+	var lat = 50.453607
+	reverseGeocode({lng: long, lat:lat}, MAPBOX_API_TOKEN).then(function(data){
+		console.log(data)
+	})
+
+
+	const mark3 = new mapboxgl.Marker({
+		color: "black",
+		draggable: true
+	}).setLngLat([ 3.952618, 50.453888])
+		.setPopup(new mapboxgl.Popup().setHTML("<h3>La Primavera</h3>"))
+		.addTo(map);
+	geocode('la primavera, Mons, Belgium', MAPBOX_API_TOKEN).then(function(data){
+		console.log(data)
+
+	})
+	//Extra check to what the console will bring back with the coordinates above.
+	var long =  3.952618;
+	var lat =50.453888
 	reverseGeocode({lng: long, lat:lat}, MAPBOX_API_TOKEN).then(function(data){
 		console.log(data)
 	})
