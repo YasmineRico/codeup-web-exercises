@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Weather API</title>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet'/>
+	<style>
+
+	</style>
+</head>
+<body>
+
+<h1>Rico Weather News</h1>
+<div id="forecast"></div>
+
+<div id='map' style='height: 500px;'></div>
+
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+	"use strict";
+	(function() {
+	mapboxgl.accessToken = MAPBOX_API_TOKEN
+
+	const map = new mapboxgl.Map({
+		container: 'map', // container ID
+		style: 'mapbox://styles/mapbox/streets-v11', // style URL
+		center: [-98.4951, 29.4246], //
+		zoom: 10
+	});
+	// geocode('San Antonio, TX', MAPBOX_API_TOKEN).then(function (data) {
+	// 	console.log(data);
+	// })
+	$.get('https://api.openweathermap.org/data/2.5/onecall', {
+		lat: 29.452,
+		lon: -98.4916,
+		appid: WEATHERMAP_API_TOKEN,
+		units: 'imperial',
+		exclude: 'hourly,minutely,current,alerts'
+	}).done(function (weather) {
+		console.log(weather)
+		$.get(function(data) {
+			var weather = '';
+			$('#forecast').each(weather, function (key, data) {
+				weather += '<div>';
+				weather += '<div>' + data[0].daily[0].temp[0].day + '</div>';
+				weather += '</div>'
+			})
+			// $('#forecast').append(weather)
+		})
+		console.log(weather)
+	})
+	})();
+
+
+
+</script>
+</body>
+</html>
