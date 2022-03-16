@@ -42,14 +42,14 @@
 		exclude: 'hourly,minutely,current,alerts'
 	}).done(function (weather) {
 		console.log(weather)
-		$.get(function(data) {
+		$.get(function() {
 			var weather = '';
-			$('#forecast').each(weather, function (key, data) {
+			for(var i = 0; i < 5; i ++) {
 				weather += '<div>';
-				weather += '<div>' + data[0].daily[0].temp[0].day + '</div>';
+				weather += '<div>' + data.daily.temp.day + '</div>';
 				weather += '</div>'
-			})
-			// $('#forecast').append(weather)
+			}
+			$('#forecast').append(weather)
 		})
 		console.log(weather)
 	})
