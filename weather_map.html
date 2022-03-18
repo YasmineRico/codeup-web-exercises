@@ -5,27 +5,40 @@
 	<title>Weather API</title>
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet'/>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 	<style>
+		body {
+            background-image: url("images/flowers.webp");
+	        background-repeat: no-repeat;
+        }
 
-#map{
-	display: flex;
-	justify-content: center;
-	margin:auto;
-	width: 75%;
-	height: 30em;
+        header {
+            display: flex;
+            justify-content: center;
+			margin-bottom: 20px;
+            color: white;
+        }
 
-}
+
+        #map {
+            display: flex;
+	        justify-content: center;
+	        margin:auto;
+            width: 75%;
+            height: 30em;
+        }
+
 	</style>
 </head>
 <body>
 <header>
-<h1>Weather Forecast</h1>
+	<h1>Global Forecast</h1>
 </header>
 
+	<div id="forecast" class="d-flex flex-row flex-wrap col-5 w-auto m-auto justify-content-around"></div>
 
-<div id="forecast"></div>
+	<div id='map'></div>
 
-<div id='map'></div>
 
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
@@ -33,45 +46,52 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 <script>
+	(function () {
 	"use strict";
-	(function() {
-	mapboxgl.accessToken = MAPBOX_API_TOKEN
 
-	const map = new mapboxgl.Map({
-		container: 'map', // container ID
-		style: 'mapbox://styles/mapbox/streets-v11', // style URL
-		center: [-98.4951, 29.4246], //
-		zoom: 10.5
-	});
-	// geocode('San Antonio, TX', MAPBOX_API_TOKEN).then(function (data) {
-	// 	console.log(data);
-	// })
-	$.get('https://api.openweathermap.org/data/2.5/onecall', {
-		lat: 29.452,
-		lon: -98.4916,
-		appid: WEATHERMAP_API_TOKEN,
-		units: 'imperial',
-		exclude: 'hourly,minutely,current,alerts'
-	}).done(function (data) {
-		console.log(data)
-		var html = "";
-		for(var i = 0; i < 5; i++) {
-			var date = new Date(data.daily[i].dt * 1000).toDateString();
-			html +=
-				'<div>'+
-				'<h2>'+date+'</h2>'+
-				'<div>'+'Description:'+ ' '+ data.daily[i].weather[0].description + '</div>'+
-				'<div>'+'The high will be'+' '+data.daily[i].temp.max+' '+'&'+' '+'the low will be'+' '+data.daily[i].temp.min+'</div>'+
-				'<div>'+'Humidty:'+' '+data.daily[i].humidity +'</div>'+
+		mapboxgl.accessToken = MAPBOX_API_TOKEN
+		var lat = 29.452
+		var long = -98.4916
+		const map = new mapboxgl.Map({
+			container: 'map', // container ID
+			style: 'mapbox://styles/mapbox/streets-v11', // style URL
+			center: [-98.4951, 29.4246], //
+			zoom: 10.5
+		});
 
-				'<div>'
-		}
-		$("#forecast").html(html);
-	})
-
-	})();
-
+		geocode('San Antonio, TX', MAPBOX_API_TOKEN).then(function (data) {
+			console.log(data);
+		})
+		$.get('https://api.openweathermap.org/data/2.5/onecall', {
+			lat: lat,
+			lon: long,
+			appid: WEATHERMAP_API_TOKEN,
+			units: 'imperial',
+			exclude: 'hourly,minutely,current,alerts'
+		}).done(function (data) {
+			console.log(data)
+			var weather = "";
+			for (var i = 0; i < 5; i++) {
+				var date = new Date(data.daily[i].dt * 1000).toDateString();
+				weather +=
+					"<section id='forecasts' class='card-header bg-transparent border-dark' style='max-width: 18rem;'>" +
+					"<h2 id='date' className='card-header'>" + date + "</h2>" +
+					'<div id="description" class="card-text">' + data.daily[i].weather[0].description + '</div>' +
+					'<div id="tempMax" class="card-text">'+'High:'+' ' + data.daily[i].temp.max + '</div>' +
+					'<div id="tempMin" class="card-text">' +'Low:'+' ' +data.daily[i].temp.min + '</div>' +
+					'<div id="humid"class="card-text">' + 'Humidty:' + ' ' + data.daily[i].humidity + '</div>'+
+				'</div>'+
+				'</section>'
+			}
+			$("#forecast").append(weather);
+		}).fail(function (jqXhr, status, error) {
+			console.log(jqXhr);
+			console.log(status);
+			console.log(error);
+		});
+	})()
 
 
 </script>
