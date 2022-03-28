@@ -19,13 +19,16 @@
             color: white;
         }
 
-
+#forecast{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
         #map {
-            display: flex;
-	        justify-content: center;
-	        margin:auto;
-            width: 75%;
-            height: 30em;
+           margin-top:20em;
+
+
         }
 
 	</style>
@@ -34,10 +37,21 @@
 <header>
 	<h1>Global Forecast</h1>
 </header>
-
+<form class="row g-3 needs-validation" novalidate>
+<div class="col-md-3 position-relative">
+	<label for="validationTooltip05" class="form-label">Zip</label>
+	<input type="text" class="form-control" id="validationTooltip05" required>
+	<div class="invalid-tooltip">
+		Please provide a valid zip.
+	</div>
+	<div class="col-12">
+		<button class="btn btn-primary" type="submit">Submit form</button>
+	</div>
+</div>
+</form>
 	<div id="forecast" class="d-flex flex-row flex-wrap col-5 w-auto m-auto justify-content-around"></div>
 
-	<div id='map'></div>
+<div id='map' style='height: 500px;'></div>
 
 
 <script src="js/mapbox-geocoder-utils.js"></script>
@@ -76,7 +90,7 @@
 			for (var i = 0; i < 5; i++) {
 				var date = new Date(data.daily[i].dt * 1000).toDateString();
 				weather +=
-					"<section id='forecasts' class='card-header bg-transparent border-dark' style='max-width: 18rem;'>" +
+					"<section id='forecasts' class='card-header bg-transparent border-dark text-white' style='max-width: 18rem;'>" +
 					"<h2 id='date' className='card-header'>" + date + "</h2>" +
 					'<div id="description" class="card-text">' + data.daily[i].weather[0].description + '</div>' +
 					'<div id="tempMax" class="card-text">'+'High:'+' ' + data.daily[i].temp.max + '</div>' +
