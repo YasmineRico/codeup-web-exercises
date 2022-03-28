@@ -239,14 +239,19 @@ returnMostFrequentUser(users) should return...
 // changingColorSquares.forEach(square => square.addEventListener('click', toggleColor));
 
 function encodeStr(str){
- if(str.toLowerCase() === 'a'){
+ if(str.toLowerCase()=== 'a'){
 	 return '@'
  }
  if(str.toLowerCase() === 's') {
 	 return '$'
  }
  if (str.toLowerCase() === 'i'){
-	 return '!'
+	 return '1'
  }
  	return str
 }
+
+console.log(encodeStr('apple')) // returns ‘@pple’
+console.log(encodeStr('codeup')) // returns ‘codeup’
+console.log(encodeStr('SASS')) // returns ‘$@$$’
+console.log(encodeStr('bike')) // returns ‘b1ke’
