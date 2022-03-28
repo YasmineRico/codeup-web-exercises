@@ -204,14 +204,14 @@ returnMostFrequentUser(users) should return...
 //
 // 	Examples...
 
-function returnStringObject(str){
-	return {
-		stringValue: str,
-		stringArray: str.split('')
-	}
-}
-
-console.log(returnStringObject('Hi')) // returns...
+// function returnStringObject(str){
+// 	return {
+// 		stringValue: str,
+// 		stringArray: str.split('')
+// 	}
+// }
+//
+// console.log(returnStringObject('Hi')) // returns...
 
 // {
 // 	stringValue: 'hello',
@@ -224,3 +224,29 @@ console.log(returnStringObject('Hi')) // returns...
 // 	stringValue: 'codeup',
 // 		stringArray: ['c', 'o', 'd', 'e', 'u', 'p']
 // }
+//================================= JS WARM UP
+// Write a function, countNegatives, and takes in a array of integers and returns the total number of negative numbers. 0 should be considered a non-negative number. If no negative numbers are present, return 0.
+//
+// //(JQUERY EXAMPLE)
+// $('#changingColors .square').on('click',
+// 	function (){$(this).toggleClass('yellow')});
+//
+// const changingColorSquares = document.querySelectorAll(
+// 	'#changingColors .square');
+// function toggle(e){
+//	
+// }
+// changingColorSquares.forEach(square => square.addEventListener('click', toggleColor));
+
+function encodeStr(str){
+ if(str.toLowerCase() === 'a'){
+	 return '@'
+ }
+ if(str.toLowerCase() === 's') {
+	 return '$'
+ }
+ if (str.toLowerCase() === 'i'){
+	 return '!'
+ }
+ 	return str
+}
